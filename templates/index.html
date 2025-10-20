@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪸 Corals Image Correction</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logos">
+                <a href="https://akkii.id" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='logo-akkii.png') }}" alt="AKKII Logo" class="header-logo">
+                </a>
+                <a href="https://ykli.web.id" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='Logo YKLI.png') }}" alt="YKLI Logo" class="header-logo">
+                </a>
+            </div>
+            <h1>🪸 Corals Image Correction</h1>
+            <p class="subtitle">Enhance your coral photos with AI-powered color correction</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-icon">📸</div>
+                <h2>Upload Your Coral Image</h2>
+                <p>Click to browse or drag and drop your image here</p>
+                <p class="file-info">Supported formats: JPG, PNG, GIF, BMP (Max 16MB)</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                    Choose Image
+                </button>
+            </div>
+        </div>
+
+        <div class="progress-section" id="progressSection" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">Processing your image...</p>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>Results</h2>
+            <div class="image-comparison">
+                <div class="image-box">
+                    <h3>Original Image</h3>
+                    <img id="originalImage" alt="Original">
+                </div>
+                <div class="arrow">→</div>
+                <div class="image-box">
+                    <h3>Corrected Image</h3>
+                    <img id="correctedImage" alt="Corrected">
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-download" id="downloadBtn">
+                    ⬇️ Download Corrected Image
+                </button>
+                <button class="btn-secondary" onclick="resetApp()">
+                    🔄 Process Another Image
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by Python + Flask | Advanced Color Correction Algorithm</p>
+            <p class="copyright">&copy; 2025 Suryo Kusumo. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
